@@ -13,7 +13,8 @@ memory. Work in the user's current workspace directory.
 bash "${CLAUDE_PLUGIN_ROOT}/scripts/workspace-status.sh"
 ```
 
-- Note the `DISCIPLINE:` value. If it is `unknown`, use the `generic` discipline below.
+- Note the `DISCIPLINE:` value. Use it to choose the template below; if it is `unknown` or
+  has no matching template file, use `generic`.
 - If the inventory is thin (no roles, or shallow ones), say so: about-me has less context to
   anchor against, but it can still proceed.
 

@@ -16,12 +16,14 @@ bash "${CLAUDE_PLUGIN_ROOT}/scripts/workspace-status.sh"
 - If `ROLES:` lists nothing, there are no role files yet. STOP and tell the user to run
   `/cv-tweaker:setup-from-cv` (bootstrap from a CV) or to create one from
   `career/role-template.md` first. Do not proceed.
-- Note the `DISCIPLINE:` value. If it is `unknown`, use the `generic` discipline below.
+- Note the `DISCIPLINE:` value. Use it to choose the template below; if it is `unknown` or
+  has no matching template file, use `generic`.
 
 ## 2. Pick the role
 
 - If the user named a role (a command argument or in their message), target
-  `career/<that-slug>.md`.
+  `career/<that-slug>.md`. If no such file exists (e.g. a typo'd name), list the available
+  roles from the `ROLES:` output and ask which they mean.
 - Otherwise pick the THINNEST role from the `ROLES:` lines: the most `open_threads`, ties
   broken by the fewest `lines`. Tell the user which role you are deepening and that they can
   name a different one.
@@ -33,8 +35,8 @@ cat "${CLAUDE_PLUGIN_ROOT}/references/disciplines/<discipline>.md"
 ```
 
 Use that template's "Interview coverage palette" as your coverage dimensions, and its
-"role file (<role>.md) sections" as the sections you write into. (Engineer keeps the
-original Tech & architecture framing; generic uses Tools, systems & domain.)
+"role file (<role>.md) sections" as the sections you write into. (Engineer keeps its
+original framing, e.g. "Tech & architecture"; generic uses the neutral equivalents.)
 
 ## 4. Interview - adaptive, one question at a time
 
