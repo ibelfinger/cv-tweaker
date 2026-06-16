@@ -58,6 +58,10 @@ user to run it, then continue once they confirm.
    sudo /Library/TeX/texbin/tlmgr install <packages from INSTALL:>
    ```
 
+   That absolute path is macOS BasicTeX. On Linux, have the user install the missing
+   packages via their distro's `texlive-*` packages (or a plain `tlmgr install` if they
+   manage TeX Live themselves).
+
    If that errors with a version/"local revision" mismatch, have them run
    `sudo /Library/TeX/texbin/tlmgr update --self` first, then retry the install.
 
@@ -101,6 +105,6 @@ On a fresh scaffold, list the top-level entries created (`ls -1`). Then give nex
   and `career/about-me.md`.
 - Drop an existing resume into `_seed/` as raw material.
 - Add one file per role under `career/`, copied from `career/role-template.md` (or use the
-  interview playbooks: "let's deepen the &lt;role&gt; role" / "let's work on my about-me").
+  interview playbooks: "let's deepen the <role> role" / "let's work on my about-me").
 - The full workflow and house style live in the workspace `CLAUDE.md`.
 - Job-link tailoring will arrive as `/cv-tweaker:tailor-cv` in a later release.
