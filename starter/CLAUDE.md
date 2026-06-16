@@ -7,9 +7,10 @@ a specific JD). The LaTeX styling is fixed in `template/skeleton.tex`.
 
 ## Commands (cv-tweaker plugin)
 Slash commands drive the workflow. Available now: `/cv-tweaker:init` (set up this
-workspace) and `/cv-tweaker:setup-from-cv` (bootstrap the inventory from an existing CV).
-Coming in later releases: `deepen-role`, `about-me`, `set-jd`, `assess-fit`, `generate-cv`,
-`generate-cover-letter`, `review-career`. Each command flags when a prerequisite is thin and
+workspace), `/cv-tweaker:setup-from-cv` (bootstrap the inventory from an existing CV),
+`/cv-tweaker:deepen-role` (deepen one role), and `/cv-tweaker:about-me` (identity 1-pager).
+Coming in later releases: `set-jd`, `assess-fit`, `generate-cv`, `generate-cover-letter`,
+`review-career`. Each command flags when a prerequisite is thin and
 lets you proceed with less precise data; some (like setup-from-cv) are unavoidable.
 
 ## Layout
@@ -98,15 +99,13 @@ it twice, removes `.aux/.log/.out`, and prints the page count. `name` defaults t
 (2-page target, warns if > 2); pass `cover-letter` for the 1-page letter.
 
 ## Deepening the inventory (interviews)
-Two documented interview processes enrich the inventory over time. Each reads its
-target file, asks one question at a time, records only what the user says, and
-updates the file's `## Open threads` list so it can be resumed.
+Enrich the inventory over time with two interview commands. Each asks one question at a
+time, records only what you say, and updates the target file's `## Open threads` so it can
+be resumed.
 
-- **Per-role deepening** — playbook `career/role-interview.md`. Trigger: "let's
-  deepen the <role> role". Target: `career/<role>.md` (input and output).
-- **About-me questionnaire** — playbook `career/about-me-interview.md`. Trigger:
-  "let's work on my about-me". Target: `career/about-me.md` (input and output);
-  feeds the summary variants in `00-profile.md`.
+- `/cv-tweaker:deepen-role` — deepen one role file (`career/<role>.md`).
+- `/cv-tweaker:about-me` — build the identity 1-pager (`career/about-me.md`), which feeds
+  the summary variants in `00-profile.md`.
 
 Honesty rule: record only the user's own words — never infer or embellish. Richer
 inventory → better CVs.
