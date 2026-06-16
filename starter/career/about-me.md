@@ -1,8 +1,7 @@
 # About [Name]
 
 Identity 1-pager: who you are as a professional. Feeds the summary variants in
-`00-profile.md` and cover-letter tone. Build it with the about-me interview ("let's work on
-my about-me"; see `about-me-interview.md`). Record only your own words - never invented
+`00-profile.md` and cover-letter tone. Build it with `/cv-tweaker:about-me`. Record only your own words - never invented
 personality or beliefs.
 
 ## Professional identity
