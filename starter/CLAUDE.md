@@ -9,8 +9,8 @@ a specific JD). The LaTeX styling is fixed in `template/skeleton.tex`.
 Slash commands drive the workflow. Available now: `/cv-tweaker:init` (set up this
 workspace), `/cv-tweaker:setup-from-cv` (bootstrap the inventory from an existing CV),
 `/cv-tweaker:deepen-role` (deepen one role), `/cv-tweaker:about-me` (identity 1-pager),
-`/cv-tweaker:set-jd`, `/cv-tweaker:assess-fit`, `/cv-tweaker:generate-cv`, and
-`/cv-tweaker:generate-cover-letter`. Coming in a later release: `review-career`. Each command
+`/cv-tweaker:set-jd`, `/cv-tweaker:assess-fit`, `/cv-tweaker:generate-cv`,
+`/cv-tweaker:generate-cover-letter`, and `/cv-tweaker:review-career`. Each command
 flags when a prerequisite is thin and
 lets you proceed with less precise data; some (like setup-from-cv) are unavoidable.
 
