@@ -12,10 +12,10 @@ user's current workspace directory.
 bash "${CLAUDE_PLUGIN_ROOT}/scripts/workspace-status.sh"
 ```
 
-- Target application: the slug the user named (verify the folder exists; if not, list the
-  `APPLICATIONS:` slugs and ask), else the one marked `LAST`.
-- If `APPLICATIONS:` lists nothing with a `jd`, STOP and tell the user to run
-  `/cv-tweaker:set-jd` first.
+- Target application: the slug the user named (verify its folder exists and has a
+  `job-description.md`; if not, list the `APPLICATIONS:` slugs and ask), else the newest
+  `APPLICATIONS:` entry whose `have=[...]` includes `jd` (normally the one marked `LAST`).
+- If no application has a `jd`, STOP and tell the user to run `/cv-tweaker:set-jd` first.
 - Read `applications/<slug>/job-description.md`.
 - SOFT: if `PROFILE: placeholder`, `ROLES:` is empty/shallow, or `ABOUTME: placeholder`, warn
   that the assessment will be coarse and offer to run `/cv-tweaker:setup-from-cv`,
