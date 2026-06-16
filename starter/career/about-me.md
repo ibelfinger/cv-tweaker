@@ -1,19 +1,19 @@
 # About [Name]
 
-Identity 1-pager: who you are as an engineer and leader. Feeds the summary variants
-in `00-profile.md` and cover-letter tone. Build it with the about-me interview
-("let's work on my about-me"; see `about-me-interview.md`). Record only your own
-words - never invented personality or beliefs.
+Identity 1-pager: who you are as a professional. Feeds the summary variants in
+`00-profile.md` and cover-letter tone. Build it with the about-me interview ("let's work on
+my about-me"; see `about-me-interview.md`). Record only your own words - never invented
+personality or beliefs.
 
-## Engineer identity
-[Kind of engineer (hands-on / architect / pragmatist), strengths, what you gravitate to.]
+## Professional identity
+[What kind of practitioner you are in your field, your strengths, what you gravitate to.]
 
-## Leadership identity
-[Style, how you grow people, how you decide.]
+## Leadership & collaboration identity
+[Style, how you grow/work with people, how you decide.]
 
-## Dev-process beliefs
-[Convictions about how software should be built: e.g. TDD, trunk-based, team shape,
-quality vs velocity, tech debt, incidents, metrics, decision-making.]
+## Craft & process beliefs
+[Convictions about how the work should be done in your field: quality vs speed, team shape,
+rituals/methods, decision-making.]
 
 ## Values & motivations
 [What you optimize for, what energizes you, what you won't compromise on.]
@@ -21,7 +21,7 @@ quality vs velocity, tech debt, incidents, metrics, decision-making.]
 ## Working style & preferences
 [Ambiguity tolerance, team size, remote/onsite, where you do your best work.]
 
-## Leadership & ways of working (detailed — pullable source)
+## Ways of working (detailed — pullable source)
 [Longer-form, concrete material that cover letters and summaries can quote directly.]
 
 ## Outside work
