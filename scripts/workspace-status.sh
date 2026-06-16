@@ -26,7 +26,7 @@ fi
 # DISCIPLINE: recorded in 00-profile.md by setup-from-cv; bracket placeholder => unknown.
 disc="unknown"
 if [ -f "$CAREER/00-profile.md" ]; then
-  d="$(grep -iE 'discipline' "$CAREER/00-profile.md" | head -1 | sed -E 's/.*[Dd]iscipline[*: ]*//; s/[*[:space:]]*$//')"
+  d="$(grep -iE '^[-*[:space:]]*discipline' "$CAREER/00-profile.md" | head -1 | sed -E 's/.*[Dd]iscipline[*: ]*//; s/[*[:space:]]*$//')"
   case "$d" in ""|\[*) disc="unknown";; *) disc="$d";; esac
 fi
 echo "DISCIPLINE: $disc"
