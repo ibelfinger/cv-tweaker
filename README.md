@@ -130,9 +130,10 @@ plugin.
 The look of the CV is plain LaTeX you own: `template/skeleton.tex` (and
 `template/cover-letter-skeleton.tex`). Restyle it however you like - colors, fonts, spacing,
 layout - but keep the `% <<MARKER>>` insertion comments (`<<SUMMARY>>`, `<<SKILLS>>`,
-`<<EXPERIENCE>>`, `<<TECHSKILLS>>`, `<<COMMUNITY>>`) and the constant header / education
-blocks, since `generate-cv` fills those in. Your changes are picked up on the next
-`generate-cv` run - no plugin update needed, since the template lives in your workspace.
+`<<EXPERIENCE>>`, `<<TECHSKILLS>>`, `<<COMMUNITY>>`), which `generate-cv` fills on each run,
+and the constant header / education blocks, which `setup-from-cv` fills once and every CV
+reuses. Your changes are picked up on the next `generate-cv` run - no plugin update needed,
+since the template lives in your workspace.
 
 ---
 
