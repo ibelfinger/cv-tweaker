@@ -5,6 +5,13 @@ the value: the **career inventory** (`career/`, the over-stuffed source of
 truth) and **tailoring judgment** (selecting/reframing inventory content to fit
 a specific JD). The LaTeX styling is fixed in `template/skeleton.tex`.
 
+## Commands (cv-tweaker plugin)
+Slash commands drive the workflow. Available now: `/cv-tweaker:init` (set up this
+workspace) and `/cv-tweaker:setup-from-cv` (bootstrap the inventory from an existing CV).
+Coming in later releases: `deepen-role`, `about-me`, `set-jd`, `assess-fit`, `generate-cv`,
+`generate-cover-letter`, `review-career`. Each command flags when a prerequisite is thin and
+lets you proceed with less precise data; some (like setup-from-cv) are unavoidable.
+
 ## Layout
 - `career/` — inventory (one file per role + `00-profile.md`). See `career/README.md`.
 - `template/skeleton.tex` — the CV style; insertion markers for variable sections.
