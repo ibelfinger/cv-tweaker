@@ -61,9 +61,13 @@ Record ONLY what the CV actually contains. Where the CV is silent, leave the tem
   `career/acme.md`), using the discipline template's role-file sections, populated with the
   CV's (shallow) data for that job. Seed `## Open threads` with the sections the CV could not
   fill (usually most of them) so `deepen-role` has a starting point.
-- **`template/skeleton.tex`** - replace the header placeholders (`[FULL NAME]`, the headline,
-  contact line, and the Education/Languages constant sections) with the CV's real values.
-  LaTeX-escape `%`, `$`, `&`, `#`, `_`.
+- **`template/skeleton.tex`** - replace the identity placeholders (`[FULL NAME]`, the
+  headline, and the contact line) and the constant Education/Languages sections (at the foot
+  of the file) with the CV's real values. LaTeX-escape `%`, `$`, `&`, `#`, `_`.
+- **`career/about-me.md`** - instantiate the discipline template's about-me section headings,
+  leaving the `[...]` prompts in place. Do NOT fill the content from the CV (identity, values,
+  and beliefs come later from the about-me interview, not a resume) - this only shapes the
+  file to the discipline so the workspace is consistent.
 - **`career/role-template.md`** - if the discipline is not the scaffold default, rewrite this
   local skeleton to the discipline template's role-file sections so future hand-created roles
   match.

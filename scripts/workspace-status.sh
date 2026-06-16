@@ -12,8 +12,11 @@ APPS="applications"
 # career/ files that are NOT role files:
 NONROLE="00-profile.md about-me.md role-template.md README.md role-interview.md about-me-interview.md"
 is_nonrole() { case " $NONROLE " in *" $1 "*) return 0;; *) return 1;; esac; }
+# Portable mtime (epoch seconds): BSD/macOS stat, then GNU stat, else 0.
+_mtime() { stat -f %m "$1" 2>/dev/null || stat -c %Y "$1" 2>/dev/null || echo 0; }
 
-# PROFILE: placeholder while the Name field still holds the template token.
+# PROFILE: 'filled' = the [Full name] token has been replaced. Coarse proxy for the
+# clobber guard, NOT a full-completeness check.
 if [ -f "$CAREER/00-profile.md" ] && ! grep -q '\[Full name\]' "$CAREER/00-profile.md"; then
   echo "PROFILE: filled"
 else
@@ -23,7 +26,7 @@ fi
 # DISCIPLINE: recorded in 00-profile.md by setup-from-cv; bracket placeholder => unknown.
 disc="unknown"
 if [ -f "$CAREER/00-profile.md" ]; then
-  d="$(grep -iE 'discipline' "$CAREER/00-profile.md" | head -1 | sed -E 's/.*[Dd]iscipline:?[*]*[[:space:]]*//; s/[*]*[[:space:]]*$//')"
+  d="$(grep -iE 'discipline' "$CAREER/00-profile.md" | head -1 | sed -E 's/.*[Dd]iscipline[*: ]*//; s/[*[:space:]]*$//')"
   case "$d" in ""|\[*) disc="unknown";; *) disc="$d";; esac
 fi
 echo "DISCIPLINE: $disc"
@@ -51,9 +54,12 @@ fi
 # APPLICATIONS: one line per folder; newest by mtime marked LAST.
 echo "APPLICATIONS:"
 if [ -d "$APPS" ]; then
-  last=""
-  newest="$(ls -1dt "$APPS"/*/ 2>/dev/null | head -1)"
-  [ -n "$newest" ] && last="$(basename "$newest")"
+  # LAST = newest by slug date (YYYY-MM-DD prefix), mtime as tiebreak (per spec).
+  last="$(for d in "$APPS"/*/; do
+            [ -d "$d" ] || continue
+            slug="$(basename "$d")"
+            printf '%s\t%s\t%s\n' "${slug:0:10}" "$(_mtime "$d")" "$slug"
+          done | sort -t"$(printf '\t')" -k1,1 -k2,2n | tail -1 | cut -f3)"
   for d in "$APPS"/*/; do
     [ -d "$d" ] || continue
     slug="$(basename "$d")"
