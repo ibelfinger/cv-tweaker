@@ -101,10 +101,9 @@ command, and note that re-running `/cv-tweaker:init` resumes at the doctor step.
 ## Orientation (end)
 
 On a fresh scaffold, list the top-level entries created (`ls -1`). Then give next steps:
-- Fill `career/00-profile.md` (contact, summary variants, skills, education, languages)
-  and `career/about-me.md`.
-- Drop an existing resume into `_seed/` as raw material.
-- Add one file per role under `career/`, copied from `career/role-template.md` (or use the
-  interview playbooks: "let's deepen the <role> role" / "let's work on my about-me").
+- If you have an existing CV, drop it into `_seed/` and run `/cv-tweaker:setup-from-cv` to
+  bootstrap your inventory from it. Otherwise fill `career/00-profile.md` and
+  `career/about-me.md` by hand, adding a file per role from `career/role-template.md`.
 - The full workflow and house style live in the workspace `CLAUDE.md`.
-- Job-link tailoring will arrive as `/cv-tweaker:tailor-cv` in a later release.
+- Deepening and job tailoring arrive as later commands: `deepen-role`, `about-me`,
+  `set-jd`, `assess-fit`, `generate-cv`, `generate-cover-letter`, `review-career`.

@@ -21,11 +21,11 @@ data never lives inside the plugin, and plugin updates never touch it.
 
 1. Open an empty folder (`mkdir my-cv && cd my-cv`) in Claude Code.
 2. Run `/cv-tweaker:init` to scaffold a complete workspace into it.
-3. Fill in `career/00-profile.md` and `career/about-me.md`, and drop an existing resume
-   into `_seed/` as raw material.
-4. Add a file per role under `career/` (copy `career/role-template.md`, or use the
-   interview playbooks to build them up one question at a time).
-5. Tailor a CV against a job link (coming soon: `/cv-tweaker:tailor-cv`).
+3. If you have an existing CV, drop it into `_seed/` and run `/cv-tweaker:setup-from-cv` to
+   bootstrap your inventory from it. Otherwise fill `career/00-profile.md`,
+   `career/about-me.md`, and a file per role (from `career/role-template.md`) by hand.
+4. Enrich the inventory and tailor a CV / cover letter to a specific job using the commands
+   in the Roadmap as they land.
 
 ## What's in a workspace
 
@@ -41,8 +41,10 @@ house style.
 
 ## Roadmap
 
-This release ships packaging plus the `init` command. Planned commands: `tailor-cv`
-(job link -> tailored CV), `deepen-role`, `about-me`, `cover-letter`, and `build`.
+Shipped: `init` (scaffold a workspace) and `setup-from-cv` (bootstrap the inventory from an
+existing CV). Planned, in stages: `deepen-role` and `about-me` (interview-driven inventory
+deepening); `set-jd`, `assess-fit`, `generate-cv`, `generate-cover-letter` (job-tailored CV
+and cover letter); and `review-career` (a reflective read of your trajectory).
 
 ## License
 
