@@ -1,0 +1,78 @@
+\documentclass[10pt,a4paper]{article}
+
+% Cover-letter skeleton. Shares the CV's visual identity (helvet font, navy
+% header, accent rule) but with wider margins for readable prose lines.
+% Target length: 1 page. Copy to <application-dir>/cover-letter.tex, replace each
+% % <<MARKER>>, then: ./build.sh <application-dir> cover-letter
+\usepackage[left=0.9in,right=0.9in,top=0.7in,bottom=0.7in]{geometry}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{fontenc}
+\usepackage{helvet}
+\usepackage{parskip}
+
+\renewcommand{\familydefault}{\sfdefault}
+
+% Colors (same palette as template/skeleton.tex)
+\definecolor{sectioncolor}{RGB}{25,55,95}
+\definecolor{accentcolor}{RGB}{40,100,140}
+\definecolor{rulecolor}{RGB}{25,55,95}
+\definecolor{lightrule}{RGB}{180,180,180}
+
+\pagestyle{empty}
+
+\hypersetup{colorlinks=true, urlcolor=accentcolor, linkcolor=accentcolor}
+
+% A touch of room between body bullets (looser than the dense CV list).
+\setlist[itemize,1]{left=10pt, itemsep=4pt, topsep=4pt, label=\textbullet}
+
+\tolerance=1
+\emergencystretch=\maxdimen
+\hyphenpenalty=10000
+\hbadness=10000
+
+% ---- House style (same as the CV; keep consistent) ----
+% - Target length: 1 page.
+% - Do NOT use em-dashes (no "---" and no literal em-dash). Use a hyphen "-".
+% - For "approximately" use $\sim$ (NOT \textasciitilde).
+% - LaTeX-escape %, $, &, #, _ in body text.
+
+\begin{document}
+
+% ===== HEADER (name + contact from 00-profile.md; subtitle per role) =====
+\begin{center}
+  {\LARGE\bfseries [FULL NAME]} \\[3pt]
+  {\large [Role you are applying for] % <<SUBTITLE>>
+  } \\[6pt]
+  {\small [City, Country] \quad$|$\quad [Phone] \quad$|$\quad \href{mailto:[email]}{[email]} \quad$|$\quad \href{[LinkedIn URL]}{[linkedin handle]}}
+\end{center}
+\vspace{2pt}
+{\color{rulecolor}\rule{\textwidth}{1.5pt}}
+\vspace{10pt}
+
+% ===== DATE =====
+\noindent % <<DATE>> e.g. 2026-01-31
+\vspace{8pt}
+
+% ===== RECIPIENT (one or more lines: company / hiring team / address) =====
+\noindent % <<RECIPIENT>> e.g. Acme Hiring Team
+\vspace{8pt}
+
+% ===== SALUTATION =====
+\noindent % <<SALUTATION>> e.g. Dear Acme Hiring Team,
+\vspace{4pt}
+
+% ===== BODY =====
+% <<BODY>> The letter. Plain paragraphs (blank line between them via parskip).
+% For emphasis bullets use:
+%   \begin{itemize}
+%     \item \textbf{Lead-in.} Supporting sentence.
+%   \end{itemize}
+% Honest reframing only; everything must trace to career/*.md.
+
+\vspace{10pt}
+\noindent Best regards, \\[3pt]
+\textbf{[FULL NAME]}
+
+\end{document}

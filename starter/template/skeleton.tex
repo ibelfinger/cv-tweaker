@@ -1,0 +1,102 @@
+\documentclass[10pt,a4paper]{article}
+
+\usepackage[left=0.7in,right=0.7in,top=0.55in,bottom=0.55in]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{fontenc}
+\usepackage{helvet}
+\usepackage{parskip}
+
+\renewcommand{\familydefault}{\sfdefault}
+
+% Colors
+\definecolor{sectioncolor}{RGB}{25,55,95}
+\definecolor{accentcolor}{RGB}{40,100,140}
+\definecolor{rulecolor}{RGB}{25,55,95}
+\definecolor{lightrule}{RGB}{180,180,180}
+
+\pagestyle{empty}
+
+% Section heading: ALL-CAPS navy title with a thick rule UNDER it.
+% \vspace{-10pt} tightens the title-to-rule gap (tune the value if needed);
+% the 5pt afterskip below is the rule-to-text gap.
+\titleformat{\section}{\large\bfseries\color{sectioncolor}}{}{0em}{\MakeUppercase}[{\vspace{-10pt}\color{rulecolor}\rule{\textwidth}{1.5pt}}]
+\titlespacing{\section}{0pt}{9pt}{5pt}
+
+\hypersetup{colorlinks=true, urlcolor=accentcolor, linkcolor=accentcolor}
+
+\setlist[itemize,1]{nosep, left=12pt, itemsep=1.5pt, topsep=2pt, label=\textbullet}
+
+\tolerance=1
+\emergencystretch=\maxdimen
+\hyphenpenalty=10000
+\hbadness=10000
+
+% ---- House style (keep consistent across every CV) ----
+% - Target length: 2 pages. Fill page 2; never spill to a 3rd (build.sh prints page count).
+% - Do NOT use em-dashes (no "---" and no literal em-dash). Use a hyphen "-" or restructure.
+% - For "approximately" use $\sim$ (NOT \textasciitilde, which renders a raised ~ glyph).
+% - Technical Skills is single-column, labelled lines (ATS-safe) -- see marker below.
+
+% Custom commands
+\newcommand{\jobheading}[2]{%
+  \vspace{5pt}%
+  {\color{accentcolor}\textbf{#1}} \hfill \textbf{#2}%
+  \vspace{-4pt}%
+  \\{\color{lightrule}\hrule height 0.5pt}%
+  \vspace{2pt}%
+}
+\newcommand{\jobtitle}[1]{\textbf{#1}}
+\newcommand{\companyname}[1]{{\color{accentcolor}#1}}
+
+\begin{document}
+
+% ===== HEADER (fill once from career/00-profile.md; same on every CV) =====
+\begin{center}
+  {\LARGE\bfseries [FULL NAME]} \\[3pt]
+  {\large [Professional headline, e.g. Engineering Leader]} \\[6pt]
+  {\small [City, Country] \quad$|$\quad [Phone] \quad$|$\quad \href{mailto:[email]}{[email]} \quad$|$\quad \href{[LinkedIn URL]}{[linkedin handle]}}
+\end{center}
+
+% ===== SUMMARY =====
+\section{Summary}
+% <<SUMMARY>> Tailored summary from career/00-profile.md (+ tone from about-me.md).
+
+% ===== SKILLS =====
+\section{Skills}
+% <<SKILLS>> Pipe-separated skills line, ordered to match the JD.
+
+% ===== WORK EXPERIENCE =====
+\section{Work Experience}
+% <<EXPERIENCE>> One \jobheading{Company (Location)}{dates} block per role, then
+% \jobtitle{Title} and an itemize list. Mine career/*.md; honest reframing only.
+% BULLET BUDGET (overshoot-then-trim; the layout is DENSE so drive by build.sh's page
+% count, not a bullet number -- a full 2 pages is ~28-32 bullets + the Community line):
+% recent / most-relevant roles ~6-7 bullets; mid roles ~4-5; pre-2018 -> "Earlier
+% Experience" one-liners. Add until build.sh reports 3 pages, then trim to 2.
+
+% ===== TECHNICAL SKILLS =====
+\section{Technical Skills}
+% <<TECHSKILLS>> Single-column, ATS-safe: one labelled line per category, e.g.
+%   \textbf{Languages:} ... \\
+%   \textbf{Cloud \& DevOps:} ... \\
+% Select categories/tools relevant to the JD. No two-column / minipage (ATS parsers
+% can scramble columns).
+
+% ===== COMMUNITY (helps fill page 2; a strong, verifiable credential) =====
+\section{Community}
+% <<COMMUNITY>> e.g. mentorship platform - top mentor, N sessions, review scores;
+% or talks, open-source, certifications, awards. Omit the section if you have none.
+
+% ===== EDUCATION =====
+\section{Education}
+\jobheading{[Institution, Faculty]}{[YYYY-MM] - [YYYY-MM]}
+\jobtitle{[Degree, field of study]}
+
+% ===== LANGUAGES =====
+\section{Languages}
+\textbf{[Language]} - [Proficiency] \quad$|$\quad \textbf{[Language]} - [Proficiency]
+
+\end{document}

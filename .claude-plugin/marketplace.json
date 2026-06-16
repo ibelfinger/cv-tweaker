@@ -1,0 +1,11 @@
+{
+  "name": "cv-tweaker",
+  "owner": { "name": "ibelfinger" },
+  "plugins": [
+    {
+      "name": "cv-tweaker",
+      "source": "./",
+      "description": "Turn a job link into a tailored, ATS-optimized CV from a reusable career inventory."
+    }
+  ]
+}

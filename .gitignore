@@ -1,0 +1,10 @@
+*.aux
+*.log
+*.out
+.DS_Store
+missfont.log
+.idea/
+.playwright-mcp/
+
+# Internal planning docs (specs), not part of the published plugin
+docs/
