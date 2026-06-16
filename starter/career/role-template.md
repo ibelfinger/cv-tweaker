@@ -4,7 +4,7 @@
 > One file per role. Copy this template to `career/<role>.md` (lowercase, hyphenated,
 > e.g. `career/acme.md`) and fill it in. Richer is better - this is the over-stuffed source
 > of truth that CVs are mined from. Record only true content. The fastest way to fill it is
-> the per-role interview ("let's deepen the <role> role"); see `role-interview.md`.
+> the `/cv-tweaker:deepen-role` command.
 
 ## Narrative arc
 Why you joined, the state on arrival, how the role evolved, why you left.
