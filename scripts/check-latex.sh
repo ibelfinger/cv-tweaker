@@ -30,6 +30,8 @@ else
   rc=1
 fi
 
+# If kpsewhich is somehow absent (no TeX at all), every package reports MISS - that is
+# over-reporting in the safe direction; the ENGINE line already shows the real cause.
 for entry in $PKGS; do
   sty="${entry%%:*}"
   tlpkg="${entry##*:}"

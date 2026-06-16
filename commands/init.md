@@ -51,9 +51,10 @@ user to run it, then continue once they confirm.
    - Do not auto-install. After they confirm, re-run the detector (step 1).
 
 4. If the engine is present but packages are missing: take the `INSTALL:` list and ask the
-   user to run (note the absolute path so a fresh BasicTeX works before PATH refreshes):
+   user to run this themselves - do NOT run it yourself (it needs a sudo password you
+   cannot supply). The absolute path makes a fresh BasicTeX work before PATH refreshes:
 
-   ```bash
+   ```text
    sudo /Library/TeX/texbin/tlmgr install <packages from INSTALL:>
    ```
 
@@ -67,20 +68,27 @@ user to run it, then continue once they confirm.
 ## Phase 2 - Verify (test compile)
 
 Only do this once the detector exits `0`. It compiles the real template through the real
-build script in a throwaway directory, so `applications/` is untouched:
+build script in a throwaway directory, so `applications/` is untouched. Run it as a
+SINGLE shell block (it relies on `$TMP` persisting across the lines):
 
 ```bash
 TMP="$(mktemp -d)"
 cp template/skeleton.tex "$TMP/cv.tex"
-./build.sh "$TMP"
-ls -1 "$TMP"/cv.pdf 2>/dev/null && echo "VERIFY_OK" || echo "VERIFY_FAILED"
+if bash build.sh "$TMP"; then
+  echo "VERIFY_OK"
+else
+  echo "VERIFY_FAILED"
+  grep -A2 '^!' "$TMP/cv.log" 2>/dev/null   # build.sh swallows pdflatex output; errors live in cv.log
+fi
 rm -rf "$TMP"
 ```
 
-- If you see `built: ... (N pages)` and `VERIFY_OK`: tell the user the toolchain is
+- `VERIFY_OK` (with a `built: ... (N pages)` line above it): tell the user the toolchain is
   verified.
-- If it failed: show the relevant `! ...`/error lines from the `build.sh` output and tell
-  the user verification failed. Do NOT claim success. Still keep the scaffolded workspace.
+- `VERIFY_FAILED`: `build.sh` captures pdflatex's output, so the LaTeX errors survive only
+  in `$TMP/cv.log` - the `grep` above prints those `! ...` lines before cleanup. Show them
+  to the user, say verification failed, and do NOT claim success. Keep the scaffolded
+  workspace.
 
 If the toolchain was never made ready in Phase 1, skip Phase 2, tell the user the
 workspace is scaffolded but LaTeX still needs finishing, repeat the exact remaining
