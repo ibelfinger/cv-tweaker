@@ -1,7 +1,7 @@
 {
   "name": "cv-tweaker",
   "description": "Turn a job link into a tailored, ATS-optimized CV from a reusable career inventory.",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "author": { "name": "ibelfinger" },
   "homepage": "https://github.com/ibelfinger/cv-tweaker#readme",
   "repository": "https://github.com/ibelfinger/cv-tweaker",
